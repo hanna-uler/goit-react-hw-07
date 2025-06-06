@@ -2,10 +2,10 @@ import css from './Contact.module.css'
 import { FiUserMinus } from "react-icons/fi";
 import { RiUserFill } from "react-icons/ri";
 import { BsTelephoneFill } from "react-icons/bs";
-import { useDispatch } from 'react-redux';
+// import { useDispatch } from 'react-redux';
 
-export default function Contact({ name, number, id }) {
-    const dispatch = useDispatch();
+export default function Contact({ name, number}) {
+    // const dispatch = useDispatch();
     const handleClick = () => { };
     return (
         <div className={css.container}>

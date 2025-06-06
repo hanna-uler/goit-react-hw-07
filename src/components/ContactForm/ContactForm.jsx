@@ -4,14 +4,15 @@ import { useId } from 'react'
 import * as Yup from "yup";
 import "yup-phone-lite";
 import { LuUserRoundPlus } from "react-icons/lu";
-// import { useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { addContact } from '../../redux/contactsOps';
 
 export default function ContactForm() {
     const contactForm = {
         name: '',
         number: '',
     };
-    // const dispatch = useDispatch();
+    const dispatch = useDispatch();
     const nameId = useId();
     const numberId = useId();
     const ContactSchema = Yup.object().shape({
@@ -20,7 +21,8 @@ export default function ContactForm() {
     });
 
     const handleSubmit = (values, actions) => {
-        // dispatch(addContact({ ...values, id: Date.now() }));
+        dispatch(addContact(values));
+        // console.log("dispatch(addContact(values)): ", dispatch(addContact(values)));
         actions.resetForm();
     }
     return (
