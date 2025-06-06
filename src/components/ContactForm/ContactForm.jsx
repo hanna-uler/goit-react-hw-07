@@ -4,24 +4,23 @@ import { useId } from 'react'
 import * as Yup from "yup";
 import "yup-phone-lite";
 import { LuUserRoundPlus } from "react-icons/lu";
-import { useDispatch } from 'react-redux';
-import {addContact} from '../../redux/contactsSlice'
+// import { useDispatch } from 'react-redux';
 
 export default function ContactForm() {
     const contactForm = {
         name: '',
         number: '',
     };
-    const dispatch = useDispatch();
+    // const dispatch = useDispatch();
     const nameId = useId();
     const numberId = useId();
     const ContactSchema = Yup.object().shape({
         name: Yup.string().min(3, "Name must be at least 3 characters long.").max(50, "Name can't be longer than 50 characters.").required("Name is required."),
-        number: Yup.string().phone(["UA","US"],"Please enter a valid phone number for Ukraine or USA.").required("Number is required.")
+        number: Yup.string().required("Number is required.")
     });
 
     const handleSubmit = (values, actions) => {
-        dispatch(addContact({ ...values, id: Date.now() }));
+        // dispatch(addContact({ ...values, id: Date.now() }));
         actions.resetForm();
     }
     return (
