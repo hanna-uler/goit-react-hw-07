@@ -36,7 +36,7 @@ const contactsSlice = createSlice({
                 state.isLoading = false;
                 state.error = null;
                 state.items.push(action.payload);
-            })
+            }).addCase(addContact.rejected, handleError)
     }
     })
 

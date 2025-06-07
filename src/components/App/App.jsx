@@ -21,7 +21,8 @@ export default function App() {
       <h1>Phonebook</h1>
       <ContactForm />
       <SearchBox />
-      {isLoading && !error && <Loader/> }
+      {isLoading && !error && <Loader />}
+      {error && <strong>Sorry, something went wrong: {error}</strong>}
       <ContactList />
     </div>
   )
