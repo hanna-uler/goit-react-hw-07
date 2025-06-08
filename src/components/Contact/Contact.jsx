@@ -8,7 +8,6 @@ import { deleteContact } from '../../redux/contactsOps';
 export default function Contact({ name, number, id}) {
     const dispatch = useDispatch();
     const handleClick = () => {
-        // console.log(id);
         dispatch(deleteContact(id));
      };
     return (
