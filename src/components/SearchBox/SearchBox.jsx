@@ -1,10 +1,10 @@
 import css from './SearchBox.module.css'
 import { LuUserRoundSearch } from "react-icons/lu";
 import { useSelector, useDispatch } from "react-redux";
-import { changeFilter } from "../../redux/filtersSlice";
+import { changeFilter, selectNameFilter } from "../../redux/filtersSlice";
 
 export default function SearchBox() {
-    const query = useSelector((state) => state.filters.name);
+    const query = useSelector(selectNameFilter);
     const dispatch = useDispatch();
 
     return (
@@ -21,10 +21,3 @@ export default function SearchBox() {
     )
     
 }
-
-// import { useSelector, useDispatch } from "react-redux";
-// import { setFilter } from "";
-
-// const dispatch = useDispatch();
-// const storedQuery = useSelector((state) => state.filter.query); - just for using in a CONTROLLED search input
-// const handleQueryChange = newQuery => dispatch(setFilter(newQuery));
